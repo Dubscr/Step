@@ -469,7 +469,7 @@ public class FirstPersonController : MonoBehaviour
         }
 
         // When crouched and using toggle system, will uncrouch for a jump
-        if(isCrouched && !holdToCrouch && !isSprinting)
+        if(isCrouched && !holdToCrouch)
         {
             Crouch();
         }
@@ -477,6 +477,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void Crouch()
     {
+        if (isSprinting) return;
         // Stands player up to full height
         // Brings walkSpeed back up to original speed
         if(isCrouched)
